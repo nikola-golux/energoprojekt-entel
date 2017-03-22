@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <h1>Istorija promene firmi zaposlenih</h1>
+  <p id="notice"><%= notice %></p>
+  <table class="table">
+    <thead>
+      <tr class="row header blue">
+        <th class="cell">Ime</th>
+        <th class="cell">Prezime</th>
+        <th class="cell">Zanimanje</th>
+        <th class="cell">Ime firme </th>
+        <th class="cell"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @employees.each do |employee| %>
+        <% employee.firms.each do |f| %>
+            <tr class="row">
+              <td class="cell"><%= employee.Ime %></td>
+              <td class="cell"><%= employee.Prezime %></td>
+              <td class="cell"><%= employee.Zanimanje %></td>
+              <td class="cell"><%= f.ime_firme %></td>
+              <td class="cell"><%= link_to 'Prikaži', employee %></td>
+            </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <%= link_to 'Novi zaposleni', new_employee_path %><br>
+  <%= link_to 'Lista zaposlenih', employees_path %><br>
+  <%= link_to 'Lista firmi', firms_path %> 
+</div>
+

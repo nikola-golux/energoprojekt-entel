@@ -1,0 +1,31 @@
+<div class="wrapper">
+  
+  <h1>Lista firmi</h1>
+  <p id="notice"><%= notice %></p>
+  <table class="table">
+    <thead>
+      <tr class="row header blue">
+        <th class="cell">Ime firme</th>
+        <th class="cell" colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @firms.each do |firm| %>
+        <tr class="row">
+          <td class="cell"><%= firm.ime_firme %></td>
+          <td class="cell"><%= link_to 'Prikaži', firm %></td>
+          <td class="cell"><%= link_to 'Promeni', edit_firm_path(firm) %></td>
+          <td class="cell"><%= link_to 'Obriši', firm, method: :delete, data: { confirm: 'Da li ste sigurni?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <%= link_to 'Nova firma', new_firm_path %><br>
+  <%= link_to 'Istorija promene firmi zaposlenih', root_path %><br>
+  <%= link_to 'Lista firmi', firms_path %> 
+</div>
+</div>

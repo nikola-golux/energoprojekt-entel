@@ -18,7 +18,7 @@
           <td class="cell"><%= employee.Ime %></td>
           <td class="cell"><%= employee.Prezime %></td>
           <td class="cell"><%= employee.Zanimanje %></td>
-          <td class="cell"><%= employee.firms.last.ime_firme if employee.firms.last %></td>
+          <td class="cell"><%= Firm.find_by(:id => employee.employees_firms.last.firm_id).ime_firme unless employee.employees_firms.find_by(:flag => true) == nil %></td>
           <td class="cell"><%= link_to 'Prikaži', employee %></td>
           <td class="cell"><%= link_to 'Promeni', edit_employee_path(employee) %></td>
           <td class="cell"><%= link_to 'Obriši', employee, method: :delete, data: { confirm: 'Da li ste sigurni?' } %></td>

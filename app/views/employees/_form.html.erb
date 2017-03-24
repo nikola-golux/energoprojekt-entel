@@ -24,11 +24,8 @@
     <%= f.text_field :Zanimanje %>
   </div>
   <div class="field">
-  <%= f.fields_for(:firms, Firm.new) do |builder| %>
-    <%= builder.label :ime_firme, "Ime Firme" %><br>
-    <%= builder.text_field :ime_firme %>
-  <% end %>
-  </div>
+    <%= f.label :firm_id, "Ime Firme" %><br>
+    <%= f.collection_select :firm_id, Firm.all, :id, :ime_firme, :include_blank => true %>  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -3,9 +3,9 @@ class Employee < ActiveRecord::Base
     has_many :firms, through: :employees_firms
     accepts_nested_attributes_for :firms
     
-    validates :ime, :presence => true
-    validates :prezime, :presence => true
-    validates :zanimanje, :presence => true
+    validates :Ime, :presence => true
+    validates :Prezime, :presence => true
+    validates :Zanimanje, :presence => true
 
     
     after_save :flag_trenutnog_posla
